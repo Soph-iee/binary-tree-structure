@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: aqua;
+  font-family: "Courier New", Courier, monospace;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.nav-bar {
+  padding: 2rem 0 0 0;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+.nav-bar input {
+  outline: none;
+  padding: 7px;
+  border-radius: 8px;
+  border: none;
+}
+#search-btn,
+button {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: black;
+  color: aqua;
+  text-transform: capitalize;
+  transition: 0.3s ease-out;
+}
+#search-btn:hover,
+button:hover {
+  padding: 6px;
+  color: black;
+  background-color: aqua;
+  border: 1px solid black;
+}
+
+.header {
+  text-transform: capitalize;
+  padding-bottom: 1rem;
+  font-size: 36px;
+}
+.list {
+  list-style: none;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+.list p {
+  font-size: 24px;
+}
+
+.contact-name,
+.new-contact label {
+  font-weight: bold;
+  font-size: 18px;
+}
+.new-contact {
+  overflow: hidden;
+  visibility: visible;
+  display: flex;
+  transition: opacity 2s linear;
+  transform: translate(0);
+  opacity: 1;
+  flex-direction: column;
+  height: fit-content;
+  gap: 1rem;
+  width: 70%;
+  margin: 2rem;
+}
+.contact {
+  margin-top: -20px;
+}
+.new-contact input {
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+#add-btn {
+  width: 20%;
+  align-self: center;
+}
+.display {
+  transform: translate(9999px);
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+}
+.list button {
+  height: 10%;
+  align-self: center;
+}
