@@ -80,9 +80,7 @@ class Contactlist {
               <p class="contact-name">${root.id}</p>
               <p class="contact-number">${root.number}</p>
             </div>
-             <button onclick='${deleteContact(
-               root.id
-             )}' >delete contact</button>
+             <button>delete contact</button>
           </li>`);
       } else if (value < root.id) {
         return this.search(root.left, value);
@@ -98,7 +96,7 @@ class Contactlist {
                 <p class="contact-name">${root.id}</p>
                 <p class="contact-number">${root.number}</p>
               </div>
-               <button onclick='deleteContact(${root.id})' >delete contact</button>
+               <button>delete contact</button>
             </li>`;
       this.inOrder(root.right);
     }
@@ -155,9 +153,8 @@ addBtn.addEventListener("click", function (e) {
 });
 
 bst.inOrder(bst.root);
-// console.log(deleteBtns);
+
 function deleteContact(value) {
-  //   console.log(value);
   bst.delete(value);
   bst.inOrder(bst.root);
 }
