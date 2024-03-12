@@ -156,11 +156,7 @@ class Contactlist {
 }
 const bst = new Contactlist();
 
-bst.insert("mary", 2);
-bst.insert("dafe", 30);
-bst.insert("angela", 46);
 bst.insert("marie", 9087654343);
-bst.insert("ella", 32);
 bst.insert("praise", 9035685815);
 
 ////////////////////////////////////////eventlisteners
