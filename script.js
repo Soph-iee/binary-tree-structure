@@ -86,7 +86,9 @@ class Contactlist {
             <p class="contact-name">${root.id}</p>
             <p class="contact-number">${root.number}</p>
           </div>
-           <button onclick='deleteContact(${root.id})'>delete contact</button>
+           <button onclick='deleteContact(${JSON.stringify(
+             root.id
+           )})'>delete contact</button>
         </li>`;
         return (contactList.innerHTML += liTag);
       } else if (value < root.id) {
@@ -111,12 +113,19 @@ class Contactlist {
     }
   }
   min(root) {
-    if (!root.left) {
-      return root;
-    } else {
-      return this.min(root.left);
+    let current = root;
+    while (current.left !== null) {
+      current = current.left;
     }
+    return current;
   }
+  // min(root) {
+  //   if (!root.left) {
+  //     return root;
+  //   } else {
+  //     return this.min(root.left);
+  //   }
+  // }
   delete(id) {
     this.root = this.deleteNode(this.root, id);
   }
@@ -129,16 +138,18 @@ class Contactlist {
     } else if (id > root.id) {
       root.right = this.deleteNode(root.right, id);
     } else {
-      if (!root.right && !root.left) {
-        return null;
-      }
+      // if (!root.right && !root.left) {
+      //   return null;
+      // }
       if (!root.left) {
         return root.right;
       }
       if (!root.right) {
         return root.left;
-      } else root.id = this.min(root.right);
-      root.right = this.deleteNode(root.right, root.id);
+      }
+      const successor = this.min(root.right);
+      root.id = successor.id;
+      root.right = this.deleteNode(root.right, successor.id);
     }
     return root;
   }
@@ -161,5 +172,5 @@ addBtn.addEventListener("click", function (e) {
 });
 
 bst.inOrder(bst.root);
-bst.delete("dafe");
-console.log(bst);
+// bst.delete("dafe");
+// console.log(bst);
