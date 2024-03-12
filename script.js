@@ -33,6 +33,12 @@ const addContactFunction = function () {
   } else return;
 };
 
+const deleteContact = function (value) {
+  bst.delete(value);
+  contactList.innerHTML = "";
+  return bst.inOrder(bst.root);
+};
+
 //////////////////////////
 class Node {
   constructor(id, number) {
@@ -75,13 +81,14 @@ class Contactlist {
       return false;
     } else {
       if (root.id === value) {
-        return (contactList.innerHTML += `<li class="list-item">
-            <div>
-              <p class="contact-name">${root.id}</p>
-              <p class="contact-number">${root.number}</p>
-            </div>
-             <button>delete contact</button>
-          </li>`);
+        const liTag = `<li class="list-item">
+          <div>
+            <p class="contact-name">${root.id}</p>
+            <p class="contact-number">${root.number}</p>
+          </div>
+           <button onclick='deleteContact(${root.id})'>delete contact</button>
+        </li>`;
+        return (contactList.innerHTML += liTag);
       } else if (value < root.id) {
         return this.search(root.left, value);
       } else return this.search(root.right, value);
@@ -96,7 +103,9 @@ class Contactlist {
                 <p class="contact-name">${root.id}</p>
                 <p class="contact-number">${root.number}</p>
               </div>
-               <button>delete contact</button>
+               <button onclick='deleteContact(${JSON.stringify(
+                 root.id
+               )})'>delete contact</button>
             </li>`;
       this.inOrder(root.right);
     }
@@ -108,8 +117,8 @@ class Contactlist {
       return this.min(root.left);
     }
   }
-  delete(value) {
-    this.root = this.deleteNode(this.root, value);
+  delete(id) {
+    this.root = this.deleteNode(this.root, id);
   }
   deleteNode(root, id) {
     if (root === null) {
@@ -128,8 +137,7 @@ class Contactlist {
       }
       if (!root.right) {
         return root.left;
-      }
-      root.id = this.min(root.right);
+      } else root.id = this.min(root.right);
       root.right = this.deleteNode(root.right, root.id);
     }
     return root;
@@ -141,7 +149,7 @@ bst.insert("mary", 2);
 bst.insert("dafe", 30);
 bst.insert("angela", 46);
 bst.insert("marie", 9087654343);
-bst.insert("ella", 30);
+bst.insert("ella", 32);
 bst.insert("praise", 9035685815);
 
 ////////////////////////////////////////eventlisteners
@@ -153,8 +161,5 @@ addBtn.addEventListener("click", function (e) {
 });
 
 bst.inOrder(bst.root);
-
-function deleteContact(value) {
-  bst.delete(value);
-  bst.inOrder(bst.root);
-}
+bst.delete("dafe");
+console.log(bst);
