@@ -88,7 +88,7 @@ class Contactlist {
           </div>
            <button onclick='deleteContact(${JSON.stringify(
              root.id
-           )})'>delete contact</button>
+           )})'><i class="fa-solid fa-trash-can"></i></button>
         </li>`;
         return (contactList.innerHTML += liTag);
       } else if (value < root.id) {
@@ -107,7 +107,7 @@ class Contactlist {
               </div>
                <button onclick='deleteContact(${JSON.stringify(
                  root.id
-               )})'>delete contact</button>
+               )})'><i class="fa-solid fa-trash-can"></i></button>
             </li>`;
       this.inOrder(root.right);
     }
@@ -173,4 +173,4 @@ addBtn.addEventListener("click", function (e) {
 
 bst.inOrder(bst.root);
 // bst.delete("dafe");
-// console.log(bst);
+console.log(bst);
