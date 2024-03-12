@@ -6,111 +6,124 @@
 body {
   background-color: rgba(0, 255, 255, 0.116);
   font-family: "Courier New", Courier, monospace;
-}
-.container {
-  width: 80%;
-  margin: 0 auto;
-}
-.nav-bar {
-  padding: 2rem 0 0 0;
-  display: flex;
-  gap: 4rem;
-  align-items: center;
-}
-.nav-bar input {
-  outline: none;
-  padding: 7px;
-  border-radius: 8px;
-  border: none;
-}
-input::placeholder {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 16px;
-  padding-left: 10px;
-  color: #aaa;
-}
-#search-btn,
-.nav-bar button,
-.new-contact button {
-  font-family: "Courier New", Courier, monospace;
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.959);
-  color: rgb(209, 236, 236);
-  text-transform: capitalize;
-  transition: 0.5s ease-out;
-}
-#search-btn:hover,
-.nav-bar button:hover,
-.new-contact button:hover {
-  padding: 6px;
-  color: black;
-  background-color: rgba(0, 255, 255, 0.274);
-  border: 1px solid rgba(0, 0, 0, 0.342);
-}
-
-.header {
-  text-transform: capitalize;
-  padding-bottom: 1rem;
-  font-size: 36px;
-}
-.list {
-  list-style: none;
-  margin: 0 2rem;
-}
-.list-item {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 1rem;
-}
-.list p {
   font-size: 24px;
 }
+@media screen and (max-width: 2100px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    
+  }
+  .nav-bar {
+    padding: 2rem 0 0 0;
+    display: flex;
 
-.contact-name,
-.new-contact label {
-  font-weight: bold;
-  font-size: 18px;
-}
-.new-contact {
-  overflow: hidden;
-  visibility: visible;
-  display: flex;
-  transition: opacity 2s linear;
-  transform: translate(0);
-  opacity: 1;
-  flex-direction: column;
-  height: fit-content;
-  gap: 1rem;
-  width: 70%;
-  margin: 2rem;
-}
-.contact {
-  margin-top: -20px;
-}
-.new-contact input {
-  outline: none;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  width: 100%;
-}
-#add-btn {
-  width: 20%;
-  align-self: center;
-}
-.display {
-  transform: translate(9999px);
-  opacity: 0;
-  height: 0;
-  visibility: hidden;
-}
-.list button {
-  height: 10%;
-  align-self: center;
-}
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-bar input {
+    width: 100%;
+    outline: none;
+    padding: 7px;
+    border-radius: 8px;
+    border: none;
+  }
+  input::placeholder {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 16px;
+    padding-left: 10px;
+    color: #aaa;
+  }
 
+  .add-contact,
+  .new-contact button {
+    font-family: "Courier New", Courier, monospace;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.959);
+    color: rgb(209, 236, 236);
+    text-transform: capitalize;
+    transition: 0.5s ease-out;
+  }
+
+  .add-contact:hover,
+  .new-contact button:hover {
+    padding: 6px;
+    color: black;
+    background-color: rgba(0, 255, 255, 0.274);
+    border: 1px solid rgba(0, 0, 0, 0.342);
+  }
+
+  .header {
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+    font-size: 36px;
+  }
+  .list {
+    list-style: none;
+    margin: 0 2rem;
+  }
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+  .list p {
+    font-size: 24px;
+  }
+
+  .contact-name,
+  .new-contact label {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .new-contact {
+    overflow: hidden;
+    visibility: visible;
+    display: flex;
+    transition: opacity 2s linear;
+    transform: translate(0);
+    opacity: 1;
+    flex-direction: column;
+    height: fit-content;
+    gap: 1rem;
+    width: 70%;
+    margin: 2rem;
+  }
+  .contact {
+    margin-top: -20px;
+  }
+  .new-contact input {
+    outline: none;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+  }
+  #add-btn {
+    width: 20%;
+    align-self: center;
+  }
+  .display {
+    transform: translate(9999px);
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  .list button,
+  #search-btn {
+    height: 10%;
+    align-self: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    color: rgba(0, 0, 0, 0.959);
+    background-color: rgba(0, 255, 255, 0.116);
+    text-transform: capitalize;
+    transition: 0.5s ease-out;
+  }
+}
 @media screen and (min-width: 375px) {
   .container {
     width: 90%;
@@ -119,11 +132,18 @@ input::placeholder {
   .nav-bar {
     padding: 2rem 0 0 0;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
   }
-  #search-btn,
-  .nav-bar button,
+  .nav-bar input {
+    width: 80%;
+    outline: none;
+    padding: 7px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  .add-contact,
   .new-contact button {
     padding: 2px 4px;
     border: none;
@@ -135,17 +155,18 @@ input::placeholder {
   }
 
   .list button,
+  #search-btn,
   .fa-solid {
     font-size: 16px;
     border: none;
     border-radius: 8px;
     color: rgba(0, 0, 0, 0.959);
-    background-color: rgb(209, 236, 236);
+    background-color: rgba(0, 255, 255, 0.116);
     text-transform: capitalize;
     transition: 0.5s ease-out;
   }
-  #search-btn:hover,
-  .nav-bar button:hover,
+
+  .add-contact:hover,
   .new-contact button:hover {
     padding: 3px;
     color: black;
